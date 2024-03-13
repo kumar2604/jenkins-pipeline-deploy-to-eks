@@ -13,5 +13,5 @@ module "eks" {
   scaling_max_size        = 1
   scaling_min_size        = 1
   instance_types          = ["t3.small"]
-  key_pair                = "singapore-new"
+  key_pair                = "mumbai-new"
 }
