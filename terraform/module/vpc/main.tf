@@ -1,5 +1,5 @@
 #######modules/vpc/main.tf
-resource "aws_vpc" "cloudquicklabs" {
+resource "aws_vpc" "cloudquicklabs-1" {
   cidr_block       = var.vpc_cidr 
   instance_tenancy = var.instance_tenancy
   tags = {
