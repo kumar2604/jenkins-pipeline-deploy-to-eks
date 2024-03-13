@@ -2,7 +2,7 @@
 
 module "vpc" {
   source                  = "./module/vpc"
-  tags                    = "cloudquicklabs"
+  tags                    = "cloudquicklabs-1"
   instance_tenancy        = "default"
   vpc_cidr                = "10.0.0.0/16"
   access_ip               = "0.0.0.0/0"
