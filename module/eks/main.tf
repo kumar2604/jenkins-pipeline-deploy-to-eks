@@ -1,6 +1,6 @@
 resource "aws_eks_cluster" "cloudquicklabs" {
   name     = var.cluster_name
-  role_arn = aws_iam_role.cloudquicklabs.arn
+  role_arn = aws_iam_role.cloudquicklabs-1.arn
 
   vpc_config {
     subnet_ids              = var.aws_public_subnet
@@ -60,8 +60,8 @@ resource "aws_security_group" "node_group_one" {
   }
 }
 
-resource "aws_iam_role" "cloudquicklabs" {
-  name = "eks-cluster-cloudquicklabs"
+resource "aws_iam_role" "cloudquicklabs-1" {
+  name = "eks-cluster-cloudquicklabs-1"
 
   assume_role_policy = <<POLICY
 {
@@ -81,18 +81,18 @@ POLICY
 
 resource "aws_iam_role_policy_attachment" "cloudquicklabs-AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-  role       = aws_iam_role.cloudquicklabs.name
+  role       = aws_iam_role.cloudquicklabs-1.name
 }
 
 # Optionally, enable Security Groups for Pods
 # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
 resource "aws_iam_role_policy_attachment" "cloudquicklabs-AmazonEKSVPCResourceController" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
-  role       = aws_iam_role.cloudquicklabs.name
+  role       = aws_iam_role.cloudquicklabs-1.name
 }
 
 resource "aws_iam_role" "cloudquicklabs2" {
-  name = "eks-node-group-cloudquicklabs"
+  name = "eks-node-group-cloudquicklabs-1"
 
   assume_role_policy = jsonencode({
     Statement = [{
